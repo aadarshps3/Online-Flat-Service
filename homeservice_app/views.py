@@ -68,3 +68,7 @@ def customer_register(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
+def sample_test(request):
+    return render(request, 'customer_register.html')
