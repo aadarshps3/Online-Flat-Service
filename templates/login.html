@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>HomeXpert</title>
+    <!-- plugins:css -->
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/vendors/mdi/css/materialdesignicons.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'assets/vendors/base/vendor.bundle.base.css' %}"
+    />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" />
+    <style>
+      .login_page_home {
+        background-image: url("https://img.freepik.com/premium-vector/halftone-background-with-circles_23-2148907689.jpg?semt=ais_hybrid");
+        background-size: 100% 100%;
+        height: 100vh;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+      }
+      .login_page_home:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important; /* Stronger shadow on hover */
+
+        opacity: 1 !important;
+      }
+
+      .auth-form-light {
+        /* background-color: rgba(
+          255,
+          255,
+          255,
+          0.1
+        ); Transparent white for stylish look */
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        color: white;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+        border-radius: 20px; /* Softer corners */
+        padding: 40px;
+        animation: fadeIn 1s ease-in-out;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .auth-form-light:hover {
+        transform: scale(1.04); /* Slight zoom on hover */
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5); /* Enhanced shadow effect */
+      }
+
+      /* Smooth fade-in effect for the login card */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .login_page_home {
+        min-height: 100vh; /* Full viewport height */
+        display: flex !important;
+
+        align-items: center !important; /* Vertically centers the content */
+        justify-content: center !important; /* Horizontally centers the content */
+        background-color: #f8f9fa; /* Optional: Light background for better contrast */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-scroller">
+      <div class="container-fluid login_page_home flex-wrap">
+        <!-- <div class="px-0"> -->
+        <!-- <div class="mx-0"> -->
+        <div class="col-lg-4 mx-auto">
+          <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+            <h1 class="text-center" style="opacity: 0.8">SignIn</h1>
+            <form class="pt-3" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="uname"
+                  class="form-control form-control-lg"
+                  id="exampleInputEmail1"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  name="pass"
+                  class="form-control form-control-lg"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="mt-3">
+                <button type="submit" class="btn btn-info">Login</button>
+              </div>
+              <div
+                class="my-2 d-flex justify-content-between align-items-center"
+              >
+                <div class="form-check">
+                  <label class="form-check-label text-muted">
+                    <input type="checkbox" class="form-check-input" />
+                    Keep me signed in
+                  </label>
+                </div>
+              </div>
+              <div class="text-center mt-4 font-weight-light">
+                signup as:<a
+                  href="{% url 'worker_register' %}"
+                  class="text-primary"
+                  >Worker</a
+                >/
+                <a href="{% url 'customer_register' %}" class="text-primary"
+                  >Customer</a
+                >
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- </div> -->
+        <!-- </div> -->
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{% static 'assets/vendors/base/vendor.bundle.base.js' %}"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="{% static 'assets/js/off-canvas.js' %}"></script>
+    <script src="{% static 'assets/js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'assets/js/template.js' %}"></script>
+    <!-- endinject -->
+  </body>
+</html>

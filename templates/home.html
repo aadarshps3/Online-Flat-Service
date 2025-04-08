@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      rel="shortcut icon"
+      href=" {% static 'images/favicon.png' %} "
+      type=""
+    />
+
+    <title>HomeXpert</title>
+
+    <!-- bootstrap core css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href=" {% static 'css/bootstrap.css' %} "
+    />
+
+    <!--owl slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <!-- nice select  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+      integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ=="
+      crossorigin="anonymous"
+    />
+    <!-- font awesome style -->
+    <link href=" {% static 'css/font-awesome.min.css' %} " rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href=" {% static 'css/style.css' %} " rel="stylesheet" />
+    <!-- responsive style -->
+    <link href=" {% static 'css/responsive.css' %} " rel="stylesheet" />
+
+    <style>
+      .mission-title {
+        position: relative;
+        display: inline-block;
+        font-size: 40px;
+        color: #ff416c;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+
+      .mission-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        animation: moveGradient 3s linear infinite;
+      }
+
+      @keyframes moveGradient {
+        from {
+          background-position: 0%;
+        }
+        to {
+          background-position: 100%;
+        }
+      }
+      .banner {
+        background-image: url("banner-image.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 3rem;
+        font-weight: bold;
+        text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+      }
+      .services-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 50px 20px;
+        justify-content: center;
+      }
+      .service-card {
+        background-color: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+        padding: 25px;
+        transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        border: 2px solid #dfe3e8;
+      }
+      .service-card:hover {
+        transform: scale(1.08);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        border-color: #5cb85c;
+      }
+      .service-card img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .service-title {
+        margin-top: 15px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #333;
+      }
+      .banner-text {
+        animation: blink 1s infinite;
+      }
+      .why-choose {
+        background: url("https://www.shutterstock.com/image-photo/home-dishwasher-repair-team-professional-260nw-2225539903.jpg")
+          no-repeat center/cover;
+        color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .why-choose::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: -1;
+      }
+      .why-choose h2 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: fadeIn 1.5s ease-in-out;
+      }
+      .features {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .feature-card {
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 12px;
+        padding: 20px;
+        width: 100%;
+        max-width: 300px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: background-color 0.3s ease-in-out,
+          transform 0.3s ease-in-out;
+      }
+      .feature-card:hover {
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        color: #333;
+        transform: scale(1.02) !important;
+      }
+      .feature-card h3 {
+        /* color: white; */
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+      .feature-card:hover .feature-card h3 {
+        color: black !important;
+      }
+      .feature-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      @keyframes slideUp {
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes blink1 {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1; /* Fully visible */
+        }
+        50% {
+          opacity: 0; /* Fully hidden */
+        }
+      }
+      .course-title {
+        position: relative;
+        display: inline-block;
+        font-size: 35px;
+        font-weight: bold;
+        color: #003366; /* Dark Blue */
+        text-transform: uppercase;
+      }
+
+      .course-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 10px; /* Adjust underline position */
+        width: 100%;
+        height: 3px;
+        background-color: #ff5733; /* Orange underline */
+        animation: underlineMove 2s infinite linear;
+      }
+
+      @keyframes underlineMove {
+        0% {
+          transform: scaleX(0);
+          transform-origin: left;
+        }
+        50% {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+        51% {
+          transform-origin: right;
+        }
+        100% {
+          transform: scaleX(0);
+          transform-origin: right;
+        }
+      }
+      .mission,
+      .why-choose {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        border-radius: 12px;
+        animation: fadeInUp 1s ease-in-out;
+      }
+      .features {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .feature-card {
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transform: translateY(20px);
+        opacity: 0;
+        animation: slideIn 1s forwards ease-in-out;
+      }
+      .feature-card:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      .feature-card:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="hero_area">
+      <div class="bg-box">
+        <img src=" {% static 'images/IMG_9683.jpg' %} " alt="" />
+      </div>
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href=" {% static 'index.html' %} ">
+              <span> HomeXpert </span>
+            </a>
+
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item active"></li>
+                <li class="nav-item"></li>
+                <li class="nav-item"></li>
+                <li class="nav-item"></li>
+              </ul>
+              <div class="user_option">
+                <a href=" {% url 'login' %} " class="order_online"> Login </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+      <!-- slider section -->
+      <section class="slider_section">
+        <div
+          id="customCarousel1"
+          class="carousel slide text-center"
+          data-ride="carousel"
+        >
+          <h1 class="display-3 text-light banner-text fw-bold">
+            Your Trusted Home Service Partner
+          </h1>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-7 col-lg-6">
+                    <div class="detail-box">
+                      <div class="btn-box"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-7 col-lg-6">
+                    <div class="detail-box">
+                      <div class="btn-box"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-7 col-lg-6">
+                    <div class="detail-box">
+                      <div class="btn-box"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container"></div>
+        </div>
+      </section>
+      <!-- end slider section -->
+    </div>
+
+    <section class="mission p-5">
+      <p style="color: red" class="mission-title">Our Mission</p>
+      <p>
+        At <b>HomeXpert</b>, our mission is to provide top-quality home services
+        with professionalism and care. We aim to simplify your life by
+        delivering fast, reliable, and affordable services right to your
+        doorstep.
+      </p>
+    </section>
+
+    <section class="why-choose">
+      <h2>Why Choose Us?</h2>
+      <div class="features">
+        <div class="feature-card">
+          <h3>Experienced Professionals</h3>
+          <p>
+            Our skilled workers are highly trained to meet your needs
+            efficiently.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Affordable Pricing</h3>
+          <p>We offer transparent pricing with no hidden costs.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Fast & Reliable Service</h3>
+          <p>We guarantee prompt responses and timely completion of tasks.</p>
+        </div>
+      </div>
+    </section>
+    <div class="text-center">
+      <p class="bold m-4 text-center p-3 course-title">Services</p>
+    </div>
+    <div class="services-section">
+      <div class="service-card">
+        <img
+          src="https://t3.ftcdn.net/jpg/02/36/57/44/360_F_236574440_2nE6HY9HHgjxxNFrq741saHUtOneXAYP.jpg"
+          alt="Cleaning Service"
+        />
+        <div class="service-title">Cleaning Services</div>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://img.freepik.com/premium-photo/professional-plumber-with-water-tap-tools_106035-1719.jpg?semt=ais_hybrid"
+          alt="Plumbing Service"
+        />
+        <div class="service-title">Plumbing Solutions</div>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://media.istockphoto.com/id/1469656864/photo/electrician-engineer-uses-a-multimeter-to-test-the-electrical-installation-and-power-line.jpg?s=612x612&w=0&k=20&c=h70UOpNbJYT5G2oGT-KUeIE3yXwEgsCpr25yR1rnGtU="
+          alt="Electrical Service"
+        />
+        <div class="service-title">Electrical Repairs</div>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://media.istockphoto.com/id/1061173208/photo/young-carpenter-using-sander-while-working-on-a-piece-of-wood.jpg?s=612x612&w=0&k=20&c=dG_8gk4Zkfq2hsXcxZSHzc1e39QpQODb5AXvx1dWRAw="
+          alt="Carpentry Service"
+        />
+        <div class="service-title">Carpentry & Furniture Fixing</div>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://5.imimg.com/data5/SELLER/Default/2024/5/421670129/TR/JY/MN/153260215/horticulture-and-landscaping.jpg"
+          alt="Gardening Service"
+        />
+        <div class="service-title">Gardening & Landscaping</div>
+      </div>
+
+      <div class="service-card">
+        <img
+          src="https://media.istockphoto.com/id/1461683093/photo/man-painting-wall-with-light-blue-dye-indoors-back-view.jpg?s=612x612&w=0&k=20&c=TDg87xVDJh-VA4zVClGlMnqpdqTh2QcZ--raihCv9XU="
+          alt="Home Painting"
+        />
+        <div class="service-title">Home Painting Services</div>
+      </div>
+    </div>
+
+    <!-- offer section -->
+
+    <!-- end offer section -->
+
+    <!-- food section -->
+
+    <!-- end food section -->
+
+    <!-- about section -->
+
+    <!-- end about section -->
+
+    <!-- book section -->
+
+    <!-- end book section -->
+
+    <!-- client section -->
+
+    <!-- end client section -->
+
+    <!-- footer section -->
+    <footer class="footer_section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 footer-col">
+            <div class="footer_contact">
+              <h4>Contact Us</h4>
+              <div class="contact_link_box">
+                <a href=" # ">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <span> calicut,kerala </span>
+                </a>
+                <a href=" # ">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+                  <span> Call +0495 1234567890 </span>
+                </a>
+                <a href=" # ">
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <span> homeexpert@gmail.com </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 footer-col">
+            <div class="footer_detail">
+              <a href=" # " class="footer-logo"> HomeXpert </a>
+              <p>"A clean home is a happy home"</p>
+              <div class="footer_social">
+                <a href=" # ">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href=" # ">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href=" # ">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href=" # ">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href=" # ">
+                  <i class="fa fa-pinterest" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 footer-col">
+            <h4>Opening Hours</h4>
+            <p>Monday-Saturday</p>
+            <p>9.30 Am -5.30 Pm</p>
+          </div>
+        </div>
+        <!-- <div class="footer-info">
+          <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="#">Leo Group</a><br /><br />
+          </p>
+        </div> -->
+      </div>
+    </footer>
+    <!-- footer section -->
+
+    <!-- jQery -->
+    <script src=" {% static 'js/jquery-3.4.1.min.js' %} "></script>
+    <!-- popper js -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- bootstrap js -->
+    <script src=" {% static 'js/bootstrap.js' %} "></script>
+    <!-- owl slider -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
+    <!-- nice select -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+    <!-- custom js -->
+    <script src=" {% static 'js/custom.js' %} "></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+    <!-- End Google Map -->
+  </body>
+</html>
